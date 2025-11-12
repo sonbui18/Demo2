@@ -205,7 +205,7 @@ MonoBehaviour:
   enemyMoveSpeed: 2
   maxHp: 50
   hpBar: {fileID: 606146454095792417}
-  enterDamage: 10
+  enterDamage: 1
   stayDamage: 0
   explosionPrefab: {fileID: 3108734405324683280, guid: fe01ed9453e9f8b4e88b0a93ec63e998, type: 3}
 --- !u!1001 &1803259089488927424
