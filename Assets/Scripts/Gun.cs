@@ -58,7 +58,7 @@ public class Gun : MonoBehaviour
 
     void Reload()
     {
-        if (Input.GetMouseButtonDown(1) && currentAmmo < maxAmmo)
+        if ((Input.GetKeyDown(KeyCode.R) || Input.GetMouseButtonDown(1)) && currentAmmo < maxAmmo)
         {
             currentAmmo = maxAmmo;
             UpdateAmmoText();
