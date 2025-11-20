@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     private int currentEnergy;
-    [SerializeField] private int energyThreshold = 3;
+    [SerializeField] private int energyThreshold = 10;
     [SerializeField] private GameObject boss;
     [SerializeField] private GameObject enemySpaner;
     private bool bossCall = false;
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     
     public void AddEnergy()
     {
-        if(bossCall) return;
+        //if(bossCall) return;
         currentEnergy += 1;
         UpdateEnergyBar();
         if (currentEnergy == energyThreshold)

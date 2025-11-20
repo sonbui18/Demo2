@@ -11,7 +11,6 @@ public class PLayerBullet : MonoBehaviour
         Destroy(gameObject, timeDestroy);
     }
 
-    // Update is called once per frame
     void Update()
     {
         MoveBullet();
