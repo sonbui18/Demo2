@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private int currentEnergy;
+    private int currentEnergy = 0;
     [SerializeField] private int energyThreshold = 10;
     [SerializeField] private GameObject boss;
-    [SerializeField] private GameObject enemySpaner;
+    [SerializeField] private GameObject enemySpawner;
     private bool bossCall = false;
     [SerializeField] private Image energyBar;
     [SerializeField] GameObject gameUi;
@@ -27,14 +27,20 @@ public class GameManager : MonoBehaviour
         boss.SetActive(false);
         MainMenu();
         audioManager.StopAudioGame();
-        cam.Lens.OrthographicSize = 5f;
+        cam.Lens.OrthographicSize = 6f;
         red.SetActive(false);
     }
 
     
     public void AddEnergy()
     {
-        //if(bossCall) return;
+        if(bossCall)
+        {
+            var spawner = enemySpawner.GetComponent<EnemySpawner>();
+            if (spawner != null)
+                spawner.timeBetweenSpawns = 0.5f;
+        }
+        ;
         currentEnergy += 1;
         UpdateEnergyBar();
         if (currentEnergy == energyThreshold)
@@ -46,10 +52,10 @@ public class GameManager : MonoBehaviour
     {
         bossCall = true;
         boss.SetActive(true);
-        enemySpaner.SetActive(false);
+        enemySpawner.SetActive(false);
         gameUi.SetActive(false);
         audioManager.PlayBossAudio();
-        cam.Lens.OrthographicSize = 7f;
+        cam.Lens.OrthographicSize = 8f;
         red.SetActive(true);
     }
     private void UpdateEnergyBar()

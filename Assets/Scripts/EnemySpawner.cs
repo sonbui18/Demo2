@@ -4,7 +4,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemies;
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private float timeBetweenSpawns = 1.5f;
+    [SerializeField] public float timeBetweenSpawns = 1.5f;
     void Start()
     {
         StartCoroutine(SpawnEnemyCoroutine());
